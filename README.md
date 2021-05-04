@@ -1,4 +1,4 @@
-# dz-collection
-TS-Collection is a generic class/interface combo pack that can facilitate that cleanliness of your code when working with lists in Typescript.
+# dz-request
+DZ-Request is a generic function used for making async Typescript requests.
 
 This is not yet ready for public consumption.
