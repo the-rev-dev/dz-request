@@ -26,8 +26,9 @@
   "homepage": "https://github.com/the-rev-dev/rev-request#readme",
   "dependencies": {
     "node": "^16.1.0",
-    "shx": "^0.3.3",
-    "shallow-equal-object": "^1.1.1"
+    "rev-strings": "0.0.5",
+    "shallow-equal-object": "^1.1.1",
+    "shx": "^0.3.3"
   },
   "devDependencies": {
     "@types/node": "^14.14.44",

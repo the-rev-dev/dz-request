@@ -1,5 +1,5 @@
-
-interface RequestOptions<B extends (Object | undefined)> {
+import { rStrings } from 'rev-strings';
+export interface RequestProps<B extends (Object | undefined)> {
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     uriPath?: string;
     params?: Record<string, string>;
@@ -17,15 +17,14 @@ interface RequestOptions<B extends (Object | undefined)> {
  * @param thunkApi 
  * @param opts 
  */
-export const request = async <Body extends (Object | undefined) = undefined>(url: string, opts: RequestOptions<Body>) => {
+export const request = async <Body extends (Object | undefined) = undefined>(url: string, opts: RequestProps<Body>) => {
 
     /* -------------------------------- Build URL ------------------------------- */
-
     if (opts?.uriPath) {
         url = url + opts.uriPath;
         if (opts?.params) {
         }
-        url = appendQuery(url, opts.params);
+        url = rStrings.toQueryString(opts.params, url);
     }
 
     /* ------------------------------ Build Headers ----------------------------- */
@@ -56,31 +55,3 @@ export const request = async <Body extends (Object | undefined) = undefined>(url
     return fetch(url, request);
 
 };
-
-
-function updateQueryStringParameter(uri: string, key: string, value: string) {
-    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-    if (uri.match(re)) {
-        return uri.replace(re, '$1' + key + "=" + value + '$2');
-    }
-    else {
-        return uri + separator + key + "=" + value;
-    }
-}
-
-/** 
-* Appends a query string to `url` based on `query`.
-* 
-* @param queryString `?field_1=value_1&...&field_n=value_n`
-* @returns `{opt_1: val_1,...,opt_n=value_n}`
-*/
-function appendQuery(url: string, query: Record<string, string>): string {
-    const queryKeys = Object.keys(query);
-
-    queryKeys.forEach(k => {
-        url = this.updateQueryStringParameter(url, k, query[k])
-    });
-
-    return url;
-}
