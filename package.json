@@ -1,7 +1,7 @@
 {
   "name": "rev-request",
   "version": "0.0.1",
-  "description": "TypeScript library that facilitates making async HTTP requests",
+  "description": "TypeScript library to facilitate client-side HTTP requests",
   "author": "Timothy Ernst",
   "license": "UNLICENSED",
   "files": [

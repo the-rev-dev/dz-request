@@ -2,7 +2,7 @@
 
 > ⚠️ This package is in development and not yet ready for public consumption. ⚠️
 
-The `rev-request` package is a TypeScript library that facilitates making async HTTP requests.  
+The `rev-request` package is a TypeScript library to facilitate client-side HTTP requests.  
 
 ## Capabilities
 
