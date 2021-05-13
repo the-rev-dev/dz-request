@@ -12,13 +12,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "clean:npm": "shx rm -rf node_modules",
+    "clean:modules": "shx rm -rf node_modules",
     "clean:lib": "shx rm -rf lib",
     "push:add": "git add .",
     "push:commit": "git commit -m \"Pre-publish commit\" || node -e \"console.log('---SKIPPED COMMIT---')\"",
     "push": "npm run push:add && npm run push:commit",
     "prepublishOnly": "npm run clean:lib && npm run build && npm run push && npm version patch",
-    "clean": "npm run clean:lib && npm run clean:npm"
+    "clean": "npm run clean:lib && npm run clean:modules"
   },
   "bugs": {
     "url": "https://github.com/the-rev-dev/rev-request/issues"
